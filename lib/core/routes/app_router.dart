@@ -9,7 +9,8 @@ import '../../screen/auth/register.dart';
 import '../../screen/auth/personalization/survery.dart';
 import '../../screen/auth/personalization/survery2.dart';
 import '../../screen/auth/personalization/survery3.dart';
-// import '../../screen/homepage/homepage_screen.dart';
+import '../../screen/homepage/homepage_screen.dart';
+import '../../screen/homepage/profile/personalsasi_screen.dart';
 
 class AppRouter {
   static const splash = '/splash';
@@ -21,6 +22,7 @@ class AppRouter {
   static const survey2 = '/survey2';
   static const survey3 = '/survey3';
   static const homepage = '/homepage';
+   static const personalisasi = '/personalisasi';
 
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -46,8 +48,11 @@ class AppRouter {
       case survey3:
         return MaterialPageRoute(builder: (_) => const SurveyScreen3());
 
-      // case homepage:
-      //   return MaterialPageRoute(builder: (_) => HomeScreen());
+      case homepage:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
+
+      case personalisasi:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
 
       default:
         return MaterialPageRoute(

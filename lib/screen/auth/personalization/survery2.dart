@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:hydropome/views/onboarding.dart';
 // import 'package:hydropome/views/clip_path.dart';
 import 'clip_path.dart';
-import '../../splash_onboarding/onboarding.dart';
+// import '../../splash_onboarding/onboarding.dart';
 
 
 class SurveryScreen2 extends StatefulWidget {
