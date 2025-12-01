@@ -1,73 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:hydropome/views/login.dart';
+// import 'package:hydropome/views/register.dart';
+// import 'package:hydropome/views/survery.dart';
 
-const Color kPrimaryColor = Color(0xFF459489);
+const Color primaryColor = Color(0xFF2EAA84);
 const Color inputFieldColor = Color(0xFFF0F0F0);
-const Color primaryTextColor = Color(0xFF333333);
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordVisible = false;
-  bool _isConfirmPasswordVisible = false;
 
   Widget _buildTextField({
     required String label,
     required String hintText,
     bool isPassword = false,
-    bool isConfirmPassword = false,
   }) {
-    bool isVisible =
-        isConfirmPassword ? _isConfirmPasswordVisible : _isPasswordVisible;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           label,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: primaryTextColor,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8.0),
         Container(
           decoration: BoxDecoration(
             color: inputFieldColor,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: kPrimaryColor),
           ),
           child: TextField(
-            obscureText:
-                isPassword || isConfirmPassword ? !isVisible : false,
-            style: const TextStyle(color: primaryTextColor),
+            obscureText: isPassword ? !_isPasswordVisible : false,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: TextStyle(color: Colors.grey[500]),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 14,
+              ),
               border: InputBorder.none,
-              suffixIcon: (isPassword || isConfirmPassword)
+              suffixIcon: isPassword
                   ? IconButton(
                       icon: Icon(
-                        isVisible
+                        _isPasswordVisible
                             ? Icons.visibility
                             : Icons.visibility_off,
                         color: Colors.grey[700],
                       ),
                       onPressed: () {
                         setState(() {
-                          if (isConfirmPassword) {
-                            _isConfirmPasswordVisible =
-                                !_isConfirmPasswordVisible;
-                          } else {
-                            _isPasswordVisible = !_isPasswordVisible;
-                          }
+                          _isPasswordVisible = !_isPasswordVisible;
                         });
                       },
                     )
@@ -82,7 +67,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -95,58 +79,50 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: BackButton(color: Colors.black),
                 ),
                 const Text(
-                  'Daftar Akun dan Mulai',
+                  'Selamat Datang Kembali',
                   style: TextStyle(
-                    color: primaryTextColor,
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 const Text(
-                  'Bertani Hidroponik! 🌱',
+                  'HydropoMate! 🌿',
                   style: TextStyle(
-                    color: primaryTextColor,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 40.0),
-                _buildTextField(
-                  label: 'Nama Lengkap',
-                  hintText: 'Masukkan Nama Lengkap',
-                ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 48.0),
                 _buildTextField(
                   label: 'Email',
                   hintText: 'Masukkan Email',
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 24.0),
                 _buildTextField(
-                  label: 'Buat Password',
+                  label: 'Password',
                   hintText: 'Masukkan Password',
                   isPassword: true,
                 ),
-                const SizedBox(height: 20.0),
-                _buildTextField(
-                  label: 'Konfirmasi Password',
-                  hintText: 'Masukkan Password',
-                  isConfirmPassword: true,
-                ),
-                const SizedBox(height: 40.0),
+                const SizedBox(height: 48.0),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('/survey');
+                    },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: kPrimaryColor,
+                      backgroundColor: primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                     child: const Text(
-                      'Daftar Akun',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      'Masuk',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -164,13 +140,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: GestureDetector(
                           onTap: () {
                             Navigator.pushReplacementNamed(
-                                context, "/login");
+                              context,
+                              "/register",
+                            );
                           },
                           child: const Text(
-                            'Masuk',
+                            'Daftar',
                             style: TextStyle(
                               fontSize: 14,
-                              color: kPrimaryColor,
+                              color: primaryColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

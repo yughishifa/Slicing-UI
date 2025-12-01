@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hydropome/views/clip_path.dart';
+import 'clip_path.dart';
 
 
 class SurveryScreen extends StatelessWidget {
@@ -112,7 +112,7 @@ class _HydroPomeQuizScreenState extends State<HydroPomeQuizScreen> {
              
               _buildQuestionCard(
                 question: 'Apakah kamu pernah mencoba menanam hidroponik sebelumnya?',
-                iconPath: 'assets/images/images4.png',
+                iconPath: 'lib/core/assets/image 4.png',
                 options: experienceOptions,
                 groupValue: _selectedExperience,
                 onChanged: (value) {
@@ -125,7 +125,7 @@ class _HydroPomeQuizScreenState extends State<HydroPomeQuizScreen> {
               
               _buildQuestionCard(
                 question: 'Apa tujuan utama kamu menggunakan aplikasi HydroPoMe?',
-                iconPath: 'assets/images/images4.png',
+                iconPath: 'lib/core/assets/image 4.png',
                 options: goalOptions,
                 groupValue: _selectedGoal,
                 onChanged: (value) {

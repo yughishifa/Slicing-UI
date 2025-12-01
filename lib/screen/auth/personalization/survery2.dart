@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hydropome/views/onboarding.dart';
-import 'package:hydropome/views/clip_path.dart';
+// import 'package:hydropome/views/onboarding.dart';
+// import 'package:hydropome/views/clip_path.dart';
+import 'clip_path.dart';
+import '../../splash_onboarding/onboarding.dart';
 
 
 class SurveryScreen2 extends StatefulWidget {
@@ -226,7 +228,7 @@ class _HydroPomeQuizScreen2State extends State<SurveryScreen2> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
-          "assets/images/images4.png",
+         'lib/core/assets/image 4.png',
           width: 30,
           height: 30,
         ),

@@ -214,7 +214,7 @@ class _SurveyScreen3State extends State<SurveyScreen3> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
-          "assets/images/images4.png", 
+          'lib/core/assets/image 4.png',
           width: 30,
           height: 30,
         ),

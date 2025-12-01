@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'onboarding.dart';
+import '../splash_onboarding/onboarding.dart';
 import 'clip_paths.dart';
-import 'onboarding.dart' show createRouteSlide;
+// import '../onboarding.dart' show createRouteSlide;
+import '../splash_onboarding/onboarding.dart' show createRouteSlide;
 
 const Color kPrimaryColor = Color(0xFF459489);
 const Color kBgDark = Color(0xFF0F3836);
