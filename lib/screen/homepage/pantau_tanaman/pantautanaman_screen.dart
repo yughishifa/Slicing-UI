@@ -85,7 +85,21 @@ class PantauTanamanScreen extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: _buildTaskAndTipsBox(), 
+              child: _buildTaskAndTipsBox(),
+            ),
+
+            const SizedBox(height: 20),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: _buildBannerHydropome(),
+            ),
+
+            const SizedBox(height: 20),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: _buildBottomButtons(),
             ),
 
             const SizedBox(height: 40),
@@ -95,8 +109,9 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-
-
+  // ---------------------------
+  // HEADER IMAGE
+  // ---------------------------
   Widget _buildHeaderImage() {
     return ClipPath(
       clipper: TopOvalClipper(),
@@ -110,7 +125,9 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-
+  // ---------------------------
+  // PROGRESS CARD
+  // ---------------------------
   Widget _buildProgressCard() {
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -170,8 +187,9 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-
-
+  // ---------------------------
+  // DAY SELECTION
+  // ---------------------------
   Widget _buildDaySelection() {
     return SizedBox(
       height: 60,
@@ -213,8 +231,9 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
- 
-
+  // ---------------------------
+  // TASK + TIPS BOX
+  // ---------------------------
   Widget _buildTaskItem(String label, bool isDone, {IconData? icon}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -256,7 +275,6 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
- 
   Widget _buildTaskAndTipsBox() {
     return Container(
       padding: const EdgeInsets.all(20),
@@ -276,7 +294,7 @@ class PantauTanamanScreen extends StatelessWidget {
         children: <Widget>[
           Row(
             children: const <Widget>[
-            Icon(Icons.rocket_launch, color: Colors.red, size: 24),
+              Icon(Icons.rocket_launch, color: Colors.red, size: 24),
               SizedBox(width: 8),
               Text(
                 'Tugas Hari ke-1',
@@ -317,6 +335,81 @@ class PantauTanamanScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  // ---------------------------
+  // BANNER
+  // ---------------------------
+  Widget _buildBannerHydropome() {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        image: const DecorationImage(
+          image: AssetImage("lib/core/assets/Banner iklan marketplace.png"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      padding: const EdgeInsets.all(20),
+      height: 150,
+    );
+  }
+
+  // ---------------------------
+  // BOTTOM BUTTONS
+  // ---------------------------
+  Widget _buildBottomButtons() {
+    return Column(
+      children: [
+        // Tombol Lihat Panduan
+        SizedBox(
+          width: double.infinity,
+          child: OutlinedButton(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              side: const BorderSide(color: Color(0xFF1E9F8C), width: 2),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            child: const Text(
+              "Lihat Panduan",
+              style: TextStyle(
+                color: Color(0xFF1E9F8C),
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 12),
+
+        // Tombol Hari ke-1 Selesai
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF1E9F8C),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            child: const Text(
+              "Hari ke-1 Selesai",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
