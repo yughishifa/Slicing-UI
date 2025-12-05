@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../auth/personalization/clip_path.dart';
 
-// Gambar header tanaman
+
 const String _imagePath = 'lib/core/assets/pakcoy.png';
 
 class PantauTanamanScreen extends StatelessWidget {
@@ -109,9 +109,7 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------
-  // HEADER IMAGE
-  // ---------------------------
+ 
   Widget _buildHeaderImage() {
     return ClipPath(
       clipper: TopOvalClipper(),
@@ -125,9 +123,7 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------
-  // PROGRESS CARD
-  // ---------------------------
+ 
   Widget _buildProgressCard() {
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -187,9 +183,7 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------
-  // DAY SELECTION
-  // ---------------------------
+ 
   Widget _buildDaySelection() {
     return SizedBox(
       height: 60,
@@ -231,9 +225,7 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------
-  // TASK + TIPS BOX
-  // ---------------------------
+  
   Widget _buildTaskItem(String label, bool isDone, {IconData? icon}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -338,9 +330,7 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------
-  // BANNER
-  // ---------------------------
+ 
   Widget _buildBannerHydropome() {
     return Container(
       width: double.infinity,
@@ -356,13 +346,10 @@ class PantauTanamanScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------
-  // BOTTOM BUTTONS
-  // ---------------------------
+
   Widget _buildBottomButtons() {
     return Column(
       children: [
-        // Tombol Lihat Panduan
         SizedBox(
           width: double.infinity,
           child: OutlinedButton(
@@ -387,7 +374,7 @@ class PantauTanamanScreen extends StatelessWidget {
 
         const SizedBox(height: 12),
 
-        // Tombol Hari ke-1 Selesai
+      
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
