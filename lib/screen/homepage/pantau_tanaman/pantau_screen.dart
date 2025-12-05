@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../auth/personalization/clip_path.dart'; 
+import 'package:hydropome/screen/homepage/pantau_tanaman/pantautanaman_screen.dart';
+import '../../auth/personalization/clip_path.dart';
 
 class PantauScreen extends StatelessWidget {
   const PantauScreen({super.key});
@@ -10,7 +11,7 @@ class PantauScreen extends StatelessWidget {
       backgroundColor: const Color(0xffF3F5F7),
       body: Column(
         children: [
-         ClipPath(
+          ClipPath(
             clipper: TopOvalClipper(),
             child: Container(
               width: double.infinity,
@@ -34,54 +35,52 @@ class PantauScreen extends StatelessWidget {
                     ),
                   ),
 
-       
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Bagaimana Kabar\nTanamanmu Hari Ini?",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox(height: 20),
-
-
-            Material(
-              elevation: 6, 
-              shadowColor: Colors.black26,
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                height: 40,
-                child: const Row(
-                  children: [
-                    Icon(Icons.search, color: Colors.grey),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        "Cari tanaman kamu...",
-                        style: TextStyle(color: Colors.grey),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Bagaimana Kabar\nTanamanmu Hari Ini?",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+
+                      const SizedBox(height: 20),
+
+                      Material(
+                        elevation: 6,
+                        shadowColor: Colors.black26,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          height: 40,
+                          child: const Row(
+                            children: [
+                              Icon(Icons.search, color: Colors.grey),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  "Cari tanaman kamu...",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ],
-    ),
-  ),
-),
+          ),
 
-         
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -103,6 +102,7 @@ class PantauScreen extends StatelessWidget {
                   const SizedBox(height: 10),
 
                   plantItem(
+                    context: context,
                     img: "lib/core/assets/selada.png",
                     title: "Selada Hidroponik",
                     difficulty: "Mudah",
@@ -110,6 +110,7 @@ class PantauScreen extends StatelessWidget {
                   ),
 
                   plantItem(
+                    context: context,
                     img: "lib/core/assets/bayam.png",
                     title: "Bayam Hidroponik",
                     difficulty: "Mudah",
@@ -117,6 +118,7 @@ class PantauScreen extends StatelessWidget {
                   ),
 
                   plantItem(
+                    context: context,
                     img: "lib/core/assets/image 15.png",
                     title: "Cabai Hidroponik",
                     difficulty: "Sulit",
@@ -125,7 +127,6 @@ class PantauScreen extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-  
                   Row(
                     children: const [
                       Text(
@@ -140,6 +141,7 @@ class PantauScreen extends StatelessWidget {
                   const SizedBox(height: 10),
 
                   plantItem(
+                    context: context,
                     img: "lib/core/assets/selada.png",
                     title: "Selada Hidroponik",
                     difficulty: "Mudah",
@@ -147,6 +149,7 @@ class PantauScreen extends StatelessWidget {
                   ),
 
                   plantItem(
+                    context: context,
                     img: "lib/core/assets/bayam.png",
                     title: "Bayam Hidroponik",
                     difficulty: "Mudah",
@@ -154,6 +157,7 @@ class PantauScreen extends StatelessWidget {
                   ),
 
                   plantItem(
+                    context: context,
                     img: "lib/core/assets/image 15.png",
                     title: "Cabai Hidroponik",
                     difficulty: "Sulit",
@@ -168,8 +172,11 @@ class PantauScreen extends StatelessWidget {
     );
   }
 
- 
+  // -------------------------
+  // METHOD TANPA ERROR LAGI
+  // -------------------------
   Widget plantItem({
+    required BuildContext context,
     required String img,
     required String title,
     required String difficulty,
@@ -193,8 +200,8 @@ class PantauScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(width: 12),
 
+          const SizedBox(width: 12),
 
           Expanded(
             child: Column(
@@ -237,19 +244,36 @@ class PantauScreen extends StatelessWidget {
             ),
           ),
 
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-            decoration: BoxDecoration(
-              color: const Color(0xFF38977F),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Text(
-              "Pantau",
-              style: TextStyle(color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => PantauTanamanScreen()),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+              decoration: BoxDecoration(
+                color: const Color(0xFF38977F),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Text(
+                "Pantau",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class PageBaru extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text("Halaman Baru")),
     );
   }
 }
