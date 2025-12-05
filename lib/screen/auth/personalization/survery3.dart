@@ -67,7 +67,7 @@ class _SurveyScreen3State extends State<SurveyScreen3> {
       actions: [
         TextButton(
           onPressed: () {
-            // Logika Lewati: biasanya menavigasi ke Home/Login
+            
           },
           child: const Text(
             'Lewati',
