@@ -1,6 +1,6 @@
 # Slicing
 **Flutter**.
 
-![Img Alt](https://github.com/UserHan9/Movie-App/blob/main/Preview.png?raw=true)
+![Img Alt](https://github.com/yughishifa/Slicing-UI/blob/main/Preview.png?raw=true)
 
 ---
